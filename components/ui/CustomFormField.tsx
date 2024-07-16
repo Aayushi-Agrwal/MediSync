@@ -47,7 +47,7 @@ const RenderField: React.FC<IRenderField> = ({
   switch (fieldType) {
     case FormFieldType.INPUT:
       return (
-        <div className="flex rounded-ms border border-dark-500 bg-dark-400">
+        <div className="flex rounded-md border border-dark-500 bg-dark-400">
           {iconSrc && (
             <Image
               src={iconSrc}
@@ -59,7 +59,6 @@ const RenderField: React.FC<IRenderField> = ({
           )}
           <FormControl>
             <Input
-              type="text"
               placeholder={placeholder}
               {...field}
               className="shad-input border-0"
@@ -90,6 +89,9 @@ const CustomFormField: React.FC<CustomProps> = ({
   fieldType,
   name,
   label,
+  placeholder,
+  iconSrc,
+  iconAlt,
 }) => {
   return (
     <FormField
@@ -98,7 +100,7 @@ const CustomFormField: React.FC<CustomProps> = ({
       render={({ field }) => (
         <FormItem className="flex-1">
           {fieldType !== FormFieldType.CHECKBOX && label && (
-            <FormLabel>{label}</FormLabel>
+            <FormLabel className="shad-input-label">{label}</FormLabel>
           )}
 
           <RenderField
@@ -107,6 +109,9 @@ const CustomFormField: React.FC<CustomProps> = ({
             fieldType={fieldType}
             name={name}
             label={label}
+            placeholder={placeholder}
+            iconSrc={iconSrc}
+            iconAlt={iconAlt}
           />
           <FormMessage className="shad-error" />
         </FormItem>
