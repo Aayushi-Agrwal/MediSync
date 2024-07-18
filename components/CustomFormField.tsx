@@ -21,6 +21,7 @@ import { RadioGroup, RadioGroupItem } from "./ui/radio-group";
 import { GenderOptions } from "@/constants";
 import { Label } from "./ui/label";
 import { Select, SelectContent, SelectTrigger, SelectValue } from "./ui/select";
+import { Textarea } from "./ui/textarea";
 
 interface CustomProps {
   control: Control<any>;
@@ -52,6 +53,7 @@ const RenderField: React.FC<IRenderField> = ({
   dateFormat,
   renderSkeleton,
   children,
+  disabled,
 }) => {
   switch (fieldType) {
     case FormFieldType.INPUT:
@@ -128,6 +130,17 @@ const RenderField: React.FC<IRenderField> = ({
           </Select>
         </FormControl>
       );
+    case FormFieldType.TEXTAREA:
+      return (
+        <FormControl>
+          <Textarea
+            placeholder={placeholder}
+            {...field}
+            className="shad-textArea"
+            disabled={disabled}
+          />
+        </FormControl>
+      );
     default:
       break;
   }
@@ -142,6 +155,7 @@ const CustomFormField: React.FC<CustomProps> = ({
   iconAlt,
   renderSkeleton,
   children,
+  disabled,
 }) => {
   return (
     <FormField
@@ -164,6 +178,7 @@ const CustomFormField: React.FC<CustomProps> = ({
             iconAlt={iconAlt}
             renderSkeleton={renderSkeleton}
             children={children}
+            disabled={disabled}
           />
           <FormMessage className="shad-error" />
         </FormItem>

@@ -172,6 +172,7 @@ const RegisterForm = ({ user }: { user: User }) => {
           </div>
         </section>
         <div className="flex flex-col gap-6 xl:flex-row">
+          {/* select doctor  */}
           <CustomFormField
             fieldType={FormFieldType.SELECT}
             control={form.control}
@@ -194,65 +195,41 @@ const RegisterForm = ({ user }: { user: User }) => {
               </SelectItem>
             ))}
           </CustomFormField>
-          {/* {Doctors.map((doctor) => (
-            <div>
-              <div className="flex cursor-pointer items-center gap-2">
-                <Image
-                  src={doctor.image}
-                  width={32}
-                  height={32}
-                  alt={doctor.name}
-                  className="rounded-full border border-dark-500"
-                />
-                <p>{doctor.name}</p>
-              </div>
-            </div>
-          ))} */}
-
-          <CustomFormField
-            fieldType={FormFieldType.PHONE_INPUT}
-            control={form.control}
-            name="phone"
-            label="Phone number"
-            placeholder="55555 00000"
-          />
         </div>
 
+        {/* insurance policy  */}
         <div className="flex flex-col gap-6 xl:flex-row">
           <CustomFormField
             fieldType={FormFieldType.INPUT}
             control={form.control}
-            name="email"
-            label="Email"
-            placeholder="johndoe@email.com"
-            iconSrc="/assets/icons/email.svg"
-            iconAlt="email"
+            name="insuranceProvider"
+            label="Insurance provider"
+            placeholder="BlueCross BlueShield"
           />
-          <CustomFormField
-            fieldType={FormFieldType.PHONE_INPUT}
-            control={form.control}
-            name="phone"
-            label="Phone number"
-            placeholder="55555 00000"
-          />
-        </div>
-
-        <div className="flex flex-col gap-6 xl:flex-row">
           <CustomFormField
             fieldType={FormFieldType.INPUT}
             control={form.control}
-            name="email"
-            label="Email"
-            placeholder="johndoe@email.com"
-            iconSrc="/assets/icons/email.svg"
-            iconAlt="email"
+            name="insurancePolicyNumber"
+            label="Insurance policy number"
+            placeholder="ABC58825000"
+          />
+        </div>
+
+        {/* allergies and medication  */}
+        <div className="flex flex-col gap-6 xl:flex-row">
+          <CustomFormField
+            fieldType={FormFieldType.TEXTAREA}
+            control={form.control}
+            name="allergies"
+            label="Allergies (if any)"
+            placeholder="Peanuts, Penicillin, Pollen"
           />
           <CustomFormField
-            fieldType={FormFieldType.PHONE_INPUT}
+            fieldType={FormFieldType.TEXTAREA}
             control={form.control}
-            name="phone"
-            label="Phone number"
-            placeholder="55555 00000"
+            name="currentMedication"
+            label="Current medication (if any)"
+            placeholder="Ibuprofen 200mg, Paracetamol 500mg"
           />
         </div>
         <SubmitButton isLoading={isLoading}>Get started</SubmitButton>
