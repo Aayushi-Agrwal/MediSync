@@ -22,6 +22,7 @@ import { GenderOptions } from "@/constants";
 import { Label } from "./ui/label";
 import { Select, SelectContent, SelectTrigger, SelectValue } from "./ui/select";
 import { Textarea } from "./ui/textarea";
+import { Checkbox } from "./ui/checkbox";
 
 interface CustomProps {
   control: Control<any>;
@@ -44,6 +45,8 @@ interface IRenderField extends CustomProps {
   dateFormat?: any;
 }
 const RenderField: React.FC<IRenderField> = ({
+  name,
+  label,
   field,
   fieldType,
   iconSrc,
@@ -139,6 +142,21 @@ const RenderField: React.FC<IRenderField> = ({
             className="shad-textArea"
             disabled={disabled}
           />
+        </FormControl>
+      );
+    case FormFieldType.CHECKBOX:
+      return (
+        <FormControl>
+          <div className="flex items-center gap-4">
+            <Checkbox
+              id={name}
+              checked={field.value}
+              onCheckedChange={field.onChange}
+            />
+            <label htmlFor={name} className="checkbox=label">
+              {label}
+            </label>
+          </div>
         </FormControl>
       );
     default:
