@@ -33,7 +33,7 @@ interface CustomProps {
   iconSrc?: string;
   iconAlt?: string;
   disabled?: boolean;
-  dateForms?: string;
+  dateFormat?: string;
   showTimeSelect?: boolean;
   children?: React.ReactNode;
   renderSkeleton?: (field: any) => React.ReactNode;
@@ -174,6 +174,8 @@ const CustomFormField: React.FC<CustomProps> = ({
   renderSkeleton,
   children,
   disabled,
+  dateFormat,
+  showTimeSelect,
 }) => {
   return (
     <FormField
@@ -197,6 +199,8 @@ const CustomFormField: React.FC<CustomProps> = ({
             renderSkeleton={renderSkeleton}
             children={children}
             disabled={disabled}
+            dateFormat={dateFormat}
+            showTimeSelect={showTimeSelect}
           />
           <FormMessage className="shad-error" />
         </FormItem>
