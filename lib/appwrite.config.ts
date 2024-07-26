@@ -1,21 +1,14 @@
 import * as sdk from "node-appwrite";
 require("dotenv").config();
 
-export const {
-  //   NEXT_PUBLIC_ENDPOINT: ENDPOINT,
-  //   NEXT_PUBLIC_PROJECT_ID: PROJECT_ID,
-  //   NEXT_PUBLIC_API_KEY: API_KEY,
-  // DATABASE_ID,
-  PATIENT_COLLECTION_ID,
-  DOCTOR_COLLECTION_ID,
-  APPOINTMENT_COLLECTION_ID,
-} = process.env;
-
 export const ENDPOINT = process.env.NEXT_PUBLIC_ENDPOINT;
 export const PROJECT_ID = process.env.NEXT_PUBLIC_PROJECT_ID;
 export const API_KEY = process.env.NEXT_PUBLIC_API_KEY;
 export const DATABASE_ID = process.env.NEXT_PUBLIC_DATABASE_ID;
 export const BUCKET_ID = process.env.NEXT_PUBLIC_BUCKET_ID;
+export const PATIENT_COLLECTION_ID = process.env.PATIENT_COLLECTION_ID;
+export const DOCTOR_COLLECTION_ID = process.env.DOCTOR_COLLECTION_ID;
+export const APPOINTMENT_COLLECTION_ID = process.env.APPOINTMENT_COLLECTION_ID;
 
 const client = new sdk.Client();
 
