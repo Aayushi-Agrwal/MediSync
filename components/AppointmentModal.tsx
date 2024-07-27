@@ -18,8 +18,8 @@ interface IAppointment {
   userId: string;
   appointment?: Appointment;
   type: "schedule" | "cancel";
-  title: string;
-  description: string;
+  // title: string;
+  // description: string;
 }
 const AppointmentModal: React.FC<IAppointment> = ({
   patientId,
