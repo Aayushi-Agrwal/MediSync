@@ -1,14 +1,11 @@
 import AppointmentForm from "@/components/forms/AppointmentForm";
 import { getPatient } from "@/lib/actions/patient.actions";
 import Image from "next/image";
-import Link from "next/link";
 
 export default async function Page({ params: { userId } }: SearchParamProps) {
   const patient = await getPatient(userId);
   return (
     <div className="flex h-screen max-h-screen">
-      {/* Todo: OTP verfication/ passkey model */}
-
       <section className="remove-scrollbar container my-auto">
         <div className="sub-container max-w-[496px]">
           <Image
@@ -18,7 +15,6 @@ export default async function Page({ params: { userId } }: SearchParamProps) {
             alt="patient"
             className="w-fit mb-12 h-10"
           />
-
           <AppointmentForm
             type="create"
             userId={userId}

@@ -6,7 +6,7 @@ import { z } from "zod";
 import { Form } from "@/components/ui/form";
 import CustomFormField from "../CustomFormField";
 import SubmitButton from "../SubmitButton";
-import { useState } from "react";
+import { Dispatch, useState, SetStateAction } from "react";
 import { getAppointmentSchema } from "@/lib/validation";
 import { useRouter } from "next/navigation";
 import { createUser } from "@/lib/actions/patient.actions";
@@ -24,8 +24,8 @@ interface IAppointment {
   userId: string;
   patientId: string;
   type: "create" | "cancel" | "schedule";
-  appointment: Appointment;
-  setOpen: (open: boolean) => void;
+  appointment?: Appointment;
+  setOpen?: Dispatch<SetStateAction<boolean>>;
 }
 const AppointmentForm: React.FC<IAppointment> = ({
   userId,
